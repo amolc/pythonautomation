@@ -9,56 +9,113 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *File searching and filtering*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Search for files in directories and subdirectories
+- Filter files by extension, name pattern, or size
+- Use glob patterns in automation scripts
+- Build file-selection logic before processing data
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
-
-This chapter covers **File searching and filtering** as part of Module 7: File Handling and Manipulation.
+Automation scripts rarely process every file in a folder. Usually, they need only certain files, such as `.csv` reports, files with a date in the name, or files larger than a minimum size. Searching and filtering helps scripts target the right inputs.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### Searching for files
 
-### Overview
+Python can search for files using:
 
-_Add content._
+- `pathlib.Path.glob()`
+- `pathlib.Path.rglob()`
+- `glob` from the standard library
 
-### Examples
+`glob()` searches one directory level based on a pattern. `rglob()` searches recursively.
+
+### Common file filters
+
+You can filter by:
+
+- file extension
+- file name pattern
+- file size
+- last modified date
+- whether the path is a file or directory
+
+### Glob patterns
+
+Examples:
+
+- `*.txt` → all text files
+- `report_*.csv` → CSV files starting with `report_`
+- `**/*.log` → all log files in nested folders
+
+### Why filtering matters
+
+Filtering prevents mistakes and improves performance. It ensures your script processes only relevant files.
+
+---
+
+## Examples
+
+### Example 1: Find all CSV files
 
 ```python
-# Example placeholder
+from pathlib import Path
+
+for file_path in Path("input").glob("*.csv"):
+    print(file_path.name)
 ```
 
-### Notes
+### Example 2: Search recursively for log files
 
-_Add important tips, pitfalls, and best practices._
+```python
+from pathlib import Path
+
+for file_path in Path("logs").rglob("*.log"):
+    print(file_path)
+```
+
+### Example 3: Filter files by size
+
+```python
+from pathlib import Path
+
+for file_path in Path("input").iterdir():
+    if file_path.is_file() and file_path.stat().st_size > 1024:
+        print(f"Large file: {file_path.name}")
+```
+
+---
+
+## Notes
+
+- Use `glob()` when you know the folder level.
+- Use `rglob()` when files may be inside subfolders.
+- Combine pattern matching with additional checks such as size or date.
+- Always confirm that a path is a file before processing it.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- File searching helps automation scripts locate relevant inputs.
+- Filtering reduces mistakes by limiting processing to matching files.
+- `glob()` and `rglob()` are practical tools for file selection.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. Print all `.txt` files inside an `input` folder.
+2. Search recursively for `.csv` files inside a `reports` directory.
+3. Print only files larger than 5 KB from a folder of sample data.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [glob documentation](https://docs.python.org/3/library/glob.html)
+- [pathlib glob patterns](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob)

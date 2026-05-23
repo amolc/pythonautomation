@@ -2,6 +2,21 @@
 
 **Automation using Python — Part 1**
 
+This module teaches how to work with files, folders, paths, and basic web content using Python. These skills are foundational for automation because most scripts must read inputs, create outputs, move files, and collect structured data.
+
+---
+
+## Learning Outcomes
+
+- Work with files and directories using Python
+- Automate common file operations such as copy, move, rename, and delete
+- Search and filter files based on names, paths, or extensions
+- Open, read, write, and append to text files safely
+- Use `os`, `os.path`, and `pathlib` concepts for filesystem tasks
+- Understand the basics of web scraping with `requests` and `BeautifulSoup`
+
+---
+
 ## Chapters
 
 1. [Working with files and directories](./working-with-files-and-directories.md)
@@ -17,4 +32,12 @@
 
 ---
 
-_Add module overview and prerequisites here._
+## Module Capstone
+
+Build a small file-processing workflow that:
+
+1. Scans a folder for input files
+2. Filters files by extension or naming pattern
+3. Reads content from selected text or CSV files
+4. Writes a processed summary file into an output folder
+5. Downloads one web page and extracts a few data points for reporting

@@ -9,56 +9,112 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *Introduction to web scraping*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Define web scraping in simple terms
+- Understand when web scraping is appropriate
+- Recognize the difference between downloading and parsing web content
+- Identify common risks and ethical considerations
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
+Web scraping means collecting information from web pages using software. Instead of copying text manually from a website, a Python script can download page content and extract the specific information you need.
 
-This chapter covers **Introduction to web scraping** as part of Module 7: File Handling and Manipulation.
+This is useful when data is visible on a webpage but not easily available in a downloadable file or API.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### What web scraping involves
 
-### Overview
+A basic scraping workflow usually has two steps:
 
-_Add content._
+1. Download the page content
+2. Parse the HTML and extract useful data
 
-### Examples
+### Web scraping vs APIs
+
+If a website offers an API, that is often the better option because it is more structured and stable. Scraping is more fragile because websites can change their layout at any time.
+
+### Common web scraping use cases
+
+- collect product or pricing information
+- capture headlines or announcements
+- extract tables from public pages
+- monitor website changes
+
+### Risks and responsibilities
+
+Before scraping a website, consider:
+
+- whether the site allows automated access
+- whether requests should be rate-limited
+- whether the data is public and appropriate to collect
+- whether an API already exists
+
+Always scrape responsibly.
+
+---
+
+## Examples
+
+### Example 1: A simple scraping workflow description
 
 ```python
-# Example placeholder
+steps = [
+    "Send an HTTP request",
+    "Receive HTML content",
+    "Parse the HTML",
+    "Extract target elements"
+]
+
+for step in steps:
+    print(step)
 ```
 
-### Notes
+### Example 2: Very basic HTML extraction idea
 
-_Add important tips, pitfalls, and best practices._
+```python
+html = "<h1>Daily Report</h1>"
+print("Downloaded HTML:", html)
+```
+
+### Example 3: List possible scraping targets
+
+```python
+targets = ["titles", "links", "table rows", "prices"]
+print(", ".join(targets))
+```
+
+---
+
+## Notes
+
+- Prefer APIs over scraping when possible.
+- Web pages can change without warning, which can break a scraper.
+- Add delays and avoid excessive requests.
+- Review legal, ethical, and usage terms before scraping a site.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- Web scraping is the process of downloading and extracting information from web pages.
+- It is useful when data is available on a site but not through a better interface.
+- Responsible scraping requires care, restraint, and awareness of site rules.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. Describe the two main steps in web scraping.
+2. Explain one case where an API is better than scraping.
+3. List three types of data that could be extracted from a webpage.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [Requests documentation](https://requests.readthedocs.io/)
+- [Beautiful Soup documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)

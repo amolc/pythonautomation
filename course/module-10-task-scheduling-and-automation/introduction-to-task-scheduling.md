@@ -9,56 +9,112 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *Introduction to task scheduling*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Define task scheduling in an automation context
+- Explain why automation jobs are often scheduled instead of run manually
+- Identify common recurring workflows that benefit from scheduling
+- Understand the role of timing, frequency, and reliability
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
-
-This chapter covers **Introduction to task scheduling** as part of Module 10: Task Scheduling and Automation.
+Writing a useful automation script is only part of the solution. In many real workflows, the script must also run at the right time: every morning, every hour, once per week, or after a specific event. Task scheduling allows automation to happen without manual triggering.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### What task scheduling means
 
-### Overview
+Task scheduling means configuring a script or command to run automatically at a chosen time or interval.
 
-_Add content._
+Examples:
 
-### Examples
+- generate a daily report at 8:00 AM
+- archive logs every night
+- check a folder every 15 minutes
+- send reminders every Monday
+
+### Why scheduling matters
+
+Scheduling helps automation become dependable and routine. It reduces the need for human memory and ensures repeated work happens on time.
+
+### Common scheduling decisions
+
+When planning a scheduled job, think about:
+
+- how often it should run
+- what inputs must exist before it starts
+- where output should be stored
+- how to know whether it succeeded or failed
+
+### Scheduled automation needs visibility
+
+A scheduled script may run with no human watching it, so logs, output files, and clear error handling are important.
+
+---
+
+## Examples
+
+### Example 1: Common scheduling ideas
 
 ```python
-# Example placeholder
+jobs = [
+    "Daily branch report at 08:00",
+    "Weekly backup on Sunday",
+    "Folder check every 15 minutes"
+]
+
+for job in jobs:
+    print(job)
 ```
 
-### Notes
+### Example 2: Represent a simple schedule in code
 
-_Add important tips, pitfalls, and best practices._
+```python
+schedule_info = {
+    "task": "Send daily summary",
+    "frequency": "daily",
+    "time": "08:00"
+}
+
+print(schedule_info)
+```
+
+### Example 3: Why logs matter
+
+```python
+print("A scheduled task should leave evidence that it ran")
+```
+
+---
+
+## Notes
+
+- Schedule only scripts that can run unattended.
+- Make input and output paths predictable.
+- Add logs or status files so success is visible.
+- Start with simple schedules before building more complex chains.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- Task scheduling runs automation scripts at planned times or intervals.
+- Scheduling is essential for recurring operational workflows.
+- Reliable scheduled tasks need good timing, logging, and error handling.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. List three tasks that are good candidates for scheduling.
+2. Explain why logs are important for scheduled automation.
+3. Describe one daily script that should run automatically in a business workflow.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [cron on Wikipedia](https://en.wikipedia.org/wiki/Cron)
+- [Windows Task Scheduler overview](https://learn.microsoft.com/windows/win32/taskschd/task-scheduler-start-page)
