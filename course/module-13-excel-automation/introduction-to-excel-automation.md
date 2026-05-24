@@ -9,56 +9,120 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *Introduction to Excel automation*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Define Excel automation in a Python context
+- Identify common tasks that can be automated in spreadsheets
+- Explain why Excel is common in business operations
+- Recognize when Python is useful alongside Excel
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
-
-This chapter covers **Introduction to Excel automation** as part of Module 13: Excel Automation.
+Excel is widely used for reports, reconciliations, data entry, summaries, and operational tracking. Because of that, many automation workflows need to read data from spreadsheets, update values, or generate new Excel outputs. Python helps automate these repetitive tasks efficiently and consistently.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### What Excel automation means
 
-### Overview
+Excel automation means using Python to work with spreadsheet files programmatically instead of editing them manually.
 
-_Add content._
+Common tasks include:
 
-### Examples
+- reading workbook data
+- updating sheets
+- creating summary files
+- combining multiple workbooks
+- validating spreadsheet contents
+
+### Why Excel remains important
+
+Many teams still store operational data in Excel because:
+
+- it is familiar
+- it is easy to share
+- it supports tabular data well
+- business users often prefer spreadsheets for review
+
+### Python’s role
+
+Python is especially useful when Excel tasks are:
+
+- repetitive
+- rule-based
+- large in volume
+- time-sensitive
+
+### Common libraries
+
+Popular tools include:
+
+- `pandas`
+- `openpyxl`
+- `xlrd` or compatible readers for older formats
+
+---
+
+## Examples
+
+### Example 1: Describe spreadsheet automation tasks
 
 ```python
-# Example placeholder
+tasks = [
+    "Read monthly sales workbook",
+    "Clean missing values",
+    "Calculate totals",
+    "Write summary sheet"
+]
+
+for task in tasks:
+    print(task)
 ```
 
-### Notes
+### Example 2: Think of Excel as structured data
 
-_Add important tips, pitfalls, and best practices._
+```python
+columns = ["branch", "premium", "claims"]
+print("Excel worksheet columns:", columns)
+```
+
+### Example 3: Why automate Excel work
+
+```python
+minutes_per_report = 20
+reports_per_week = 5
+print("Weekly manual effort:", minutes_per_report * reports_per_week, "minutes")
+```
+
+---
+
+## Notes
+
+- Excel is often the starting point for operational automation.
+- Keep spreadsheet structure consistent where possible.
+- Prefer automation for repeated transformations, not one-time editing.
+- Validate important outputs before sharing them.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- Excel automation uses Python to read, update, and generate spreadsheet files.
+- It is valuable because spreadsheets remain common in real business workflows.
+- Python helps make Excel work faster, more consistent, and easier to scale.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. List three Excel tasks that could be automated with Python.
+2. Explain why Excel is still common in business workflows.
+3. Describe one repeated spreadsheet task you would like to automate.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [pandas Excel I/O documentation](https://pandas.pydata.org/docs/user_guide/io.html#excel-files)
+- [openpyxl documentation](https://openpyxl.readthedocs.io/)

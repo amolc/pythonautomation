@@ -9,56 +9,134 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *Handling errors and exceptions in automation scripts*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Explain what exceptions are in Python
+- Use `try` and `except` blocks to handle failures
+- Distinguish between recoverable and non-recoverable errors
+- Make automation scripts safer and easier to troubleshoot
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
-
-This chapter covers **Handling errors and exceptions in automation scripts** as part of Module 11: Error Handling and Logging.
+Automation scripts often interact with files, websites, databases, and external systems. Any of these steps can fail because of missing files, invalid data, permission issues, network problems, or unexpected input. Error handling helps a script respond clearly instead of crashing without explanation.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### What an exception is
 
-### Overview
+An **exception** is a runtime error that interrupts normal program execution.
 
-_Add content._
+Common examples:
 
-### Examples
+- `FileNotFoundError`
+- `ValueError`
+- `KeyError`
+- `ZeroDivisionError`
+- `TimeoutError`
+
+### Basic error handling structure
+
+Python uses `try` and `except` to catch exceptions:
 
 ```python
-# Example placeholder
+try:
+    risky_code()
+except SomeError:
+    handle_problem()
 ```
 
-### Notes
+This allows the script to show a meaningful message, log the problem, or continue with fallback logic.
 
-_Add important tips, pitfalls, and best practices._
+### `else` and `finally`
+
+- `else` runs if no exception occurs
+- `finally` runs whether an error occurs or not
+
+These blocks are useful for cleanup and success handling.
+
+### Catch specific exceptions
+
+It is better to catch specific exceptions than a broad `except Exception` unless you are logging and re-raising carefully. Specific handling makes scripts easier to debug.
+
+### Error handling in automation
+
+Good automation error handling should:
+
+- explain what failed
+- avoid silent failure
+- prevent partial or unsafe work where possible
+- keep logs or messages useful for later review
+
+---
+
+## Examples
+
+### Example 1: Handle a missing file
+
+```python
+try:
+    with open("input/report.txt", "r", encoding="utf-8") as file:
+        content = file.read()
+except FileNotFoundError:
+    print("Input file was not found")
+```
+
+### Example 2: Use `else` and `finally`
+
+```python
+try:
+    number = int("25")
+except ValueError:
+    print("Invalid number")
+else:
+    print("Converted successfully:", number)
+finally:
+    print("Conversion step finished")
+```
+
+### Example 3: Validate data safely
+
+```python
+def calculate_average(total, count):
+    try:
+        return total / count
+    except ZeroDivisionError:
+        print("Count cannot be zero")
+        return 0
+
+print(calculate_average(100, 4))
+print(calculate_average(100, 0))
+```
+
+---
+
+## Notes
+
+- Catch only the exceptions you expect and understand.
+- Use clear error messages that identify the failed step.
+- Do not hide serious failures unless you have a recovery plan.
+- Combine error handling with logging for better visibility.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- Exceptions are runtime errors that interrupt a script.
+- `try`, `except`, `else`, and `finally` help control failure behavior.
+- Good automation scripts handle errors clearly and safely.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. Write a script that tries to open a missing file and prints a friendly error message.
+2. Convert a string to an integer and handle a possible `ValueError`.
+3. Create a function that catches `ZeroDivisionError` and returns a safe default value.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [Python exceptions documentation](https://docs.python.org/3/tutorial/errors.html)

@@ -9,56 +9,103 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *Implementing automation best practices*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Apply safe design principles to concurrent automation workflows
+- Reduce risks around shared resources and race conditions
+- Keep parallel automation scripts understandable and maintainable
+- Choose simple, reliable concurrency approaches when appropriate
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
-
-This chapter covers **Implementing automation best practices** as part of Module 12: Parallel Execution in Python.
+Parallel execution can improve performance, but it also increases complexity. Good automation design matters even more when multiple tasks run at the same time. Best practices help you avoid subtle bugs, duplicate work, and hard-to-debug failures.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### Keep tasks independent
 
-### Overview
+Parallel tasks are easier to manage when each unit of work is separate and does not depend heavily on shared mutable state.
 
-_Add content._
+### Be careful with shared resources
 
-### Examples
+Common shared resources include:
+
+- files
+- databases
+- network connections
+- shared variables
+
+If two workers try to modify the same resource at the same time, the result can be inconsistent.
+
+### Prefer simple coordination
+
+Simple approaches are often safer:
+
+- divide work clearly
+- collect results after workers finish
+- avoid unnecessary communication between workers
+
+### Add monitoring and error visibility
+
+Parallel automation should still log progress, failures, and important counts so problems can be traced later.
+
+---
+
+## Examples
+
+### Example 1: Independent units of work
 
 ```python
-# Example placeholder
+files = ["a.csv", "b.csv", "c.csv"]
+for file_name in files:
+    print(f"Each file can be processed separately: {file_name}")
 ```
 
-### Notes
+### Example 2: Avoid shared output conflicts
 
-_Add important tips, pitfalls, and best practices._
+```python
+workers = ["worker1", "worker2"]
+for worker in workers:
+    print(f"{worker} should write to its own temporary output")
+```
+
+### Example 3: Collect results after parallel work
+
+```python
+partial_results = [10, 20, 30]
+total = sum(partial_results)
+print("Combined result:", total)
+```
+
+---
+
+## Notes
+
+- Start with sequential code, then parallelize only the bottleneck.
+- Minimize shared mutable state.
+- Keep logging useful even when many workers run.
+- Choose correctness first, then optimize.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- Parallel automation should be designed for independence, safety, and clarity.
+- Shared resources create risk and should be handled carefully.
+- Simple coordination patterns are often the most maintainable.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. List three resources that can cause conflicts in parallel automation.
+2. Explain why independent work units are easier to parallelize.
+3. Describe one way to avoid multiple workers writing to the same file.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [concurrent.futures documentation](https://docs.python.org/3/library/concurrent.futures.html)

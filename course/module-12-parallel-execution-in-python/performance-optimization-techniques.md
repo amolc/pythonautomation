@@ -9,56 +9,110 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *Performance optimization techniques*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Identify common performance bottlenecks in automation scripts
+- Apply simple optimization techniques before adding complexity
+- Measure script behavior to guide improvement decisions
+- Choose appropriate performance strategies for different workloads
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
-
-This chapter covers **Performance optimization techniques** as part of Module 12: Parallel Execution in Python.
+Not every slow script needs threads or processes. Many performance problems come from inefficient file handling, repeated computations, unnecessary loops, or slow external calls. Good optimization starts with measurement and simple improvements.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### Find the bottleneck first
 
-### Overview
+Before optimizing, determine what is actually slow:
 
-_Add content._
+- file I/O
+- network calls
+- database queries
+- repeated computations
+- inefficient data transformations
 
-### Examples
+### Simple optimizations
+
+Useful low-complexity improvements include:
+
+- reducing repeated work
+- caching reusable values
+- processing data in batches
+- avoiding unnecessary file reads or writes
+- using efficient libraries for tabular data
+
+### Measure execution time
+
+Use timing tools or simple timestamps to compare approaches.
+
+### Optimize responsibly
+
+A faster script is not better if it becomes unreliable or impossible to understand.
+
+---
+
+## Examples
+
+### Example 1: Measure execution time
 
 ```python
-# Example placeholder
+import time
+
+start = time.time()
+time.sleep(1)
+end = time.time()
+
+print(f"Elapsed time: {end - start:.2f} seconds")
 ```
 
-### Notes
+### Example 2: Avoid repeated computation
 
-_Add important tips, pitfalls, and best practices._
+```python
+numbers = [1, 2, 3, 4]
+squares = [n * n for n in numbers]
+print(squares)
+```
+
+### Example 3: Process data in chunks conceptually
+
+```python
+rows = list(range(1, 11))
+chunk_size = 3
+for i in range(0, len(rows), chunk_size):
+    print(rows[i:i + chunk_size])
+```
+
+---
+
+## Notes
+
+- Measure before and after optimization.
+- Prefer simple wins before advanced concurrency.
+- Reduce unnecessary I/O when possible.
+- Keep correctness and readability as priorities.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- Optimization should begin with understanding the bottleneck.
+- Many automation scripts can be improved with simple changes.
+- Performance work should be guided by measurement, not guesswork.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. Measure the execution time of a short Python operation.
+2. Describe two non-concurrency ways to speed up an automation script.
+3. Explain why optimization without measurement is risky.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [time module documentation](https://docs.python.org/3/library/time.html)
+- [timeit documentation](https://docs.python.org/3/library/timeit.html)

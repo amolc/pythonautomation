@@ -9,56 +9,114 @@
 
 By the end of this chapter, you will be able to:
 
-- Understand the core concepts covered in *Multiprocessing for parallel execution*
-- Apply them in small Python examples
-- Connect this topic to automation workflows where relevant
+- Explain what multiprocessing is
+- Recognize CPU-bound tasks that benefit from separate processes
+- Create worker processes in Python
+- Understand the tradeoffs of process-based parallelism
 
 ---
 
 ## Introduction
 
-<!-- Add your teaching content here -->
-
-This chapter covers **Multiprocessing for parallel execution** as part of Module 12: Parallel Execution in Python.
+Multiprocessing runs work in separate processes instead of separate threads. This is useful for CPU-heavy tasks because each process has its own Python interpreter and memory space. In automation, multiprocessing can help when many independent calculations or transformations must be performed.
 
 ---
 
 ## Key Concepts
 
-<!-- Expand each section with explanations, diagrams, and code samples -->
+### What multiprocessing means
 
-### Overview
+A process is an independent running program instance. Multiple processes can run in parallel on different CPU cores.
 
-_Add content._
+### When multiprocessing helps
 
-### Examples
+Multiprocessing is often a better choice for:
+
+- image transformations
+- large data calculations
+- CPU-heavy parsing
+- expensive batch processing tasks
+
+### Process pools
+
+The `multiprocessing.Pool` class makes it easier to distribute work across multiple processes.
+
+### Costs and tradeoffs
+
+Multiprocessing adds overhead:
+
+- more memory use
+- more startup cost
+- more complex data sharing
+
+It should be used when the performance benefit justifies that complexity.
+
+---
+
+## Examples
+
+### Example 1: Start one process
 
 ```python
-# Example placeholder
+from multiprocessing import Process
+
+def worker():
+    print("Running in a separate process")
+
+process = Process(target=worker)
+process.start()
+process.join()
 ```
 
-### Notes
+### Example 2: Use a process pool
 
-_Add important tips, pitfalls, and best practices._
+```python
+from multiprocessing import Pool
+
+def square(number):
+    return number * number
+
+with Pool(processes=2) as pool:
+    results = pool.map(square, [1, 2, 3, 4])
+
+print(results)
+```
+
+### Example 3: Compare independent tasks
+
+```python
+tasks = ["resize image", "compress file", "analyze dataset"]
+for task in tasks:
+    print(f"Independent task: {task}")
+```
+
+---
+
+## Notes
+
+- Multiprocessing is best for CPU-bound work.
+- Keep tasks independent to reduce data-sharing complexity.
+- Measure performance before assuming multiprocessing is necessary.
+- On some platforms, process startup behavior requires careful script structure.
 
 ---
 
 ## Summary
 
-- _Key takeaway 1_
-- _Key takeaway 2_
-- _Key takeaway 3_
+- Multiprocessing uses separate processes to achieve true parallel execution for CPU-bound work.
+- It is useful when independent tasks need significant computation.
+- The benefits must be weighed against extra complexity and overhead.
 
 ---
 
 ## Practice Exercises
 
-1. _Exercise 1_
-2. _Exercise 2_
-3. _Exercise 3_
+1. Create a script that starts one worker process.
+2. Use a process pool to apply a function to a list of numbers.
+3. Name two automation tasks that are better suited to multiprocessing than threading.
 
 ---
 
 ## Further Reading
 
-- [Python documentation](https://docs.python.org/3/)
+- [multiprocessing documentation](https://docs.python.org/3/library/multiprocessing.html)
