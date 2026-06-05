@@ -1,6 +1,6 @@
 # Automation using Python — Part 1
 
-Structured course with **15 modules** (`module-01` … `module-15`). Each topic is a Markdown chapter.
+Structured course with **19 modules** (`module-01` … `module-19`). Each topic is a Markdown chapter.
 
 > **Module 07** includes both *File Handling* and *Web Scraping* chapters (syllabus lists these as two Module 7 blocks).
 
@@ -21,6 +21,10 @@ Structured course with **15 modules** (`module-01` … `module-15`). Each topic 
 13. [Excel Automation](./module-13-excel-automation/README.md)
 14. [PDF Automation](./module-14-pdf-automation/README.md)
 15. [Image Processing with Python](./module-15-image-processing-with-python/README.md)
+16. [Pandas and DataFrames](./module-16-pandas-and-dataframes/README.md)
+17. [Plotly and Matplotlib](./module-17-plotly-and-matplotlib/README.md)
+18. [Building Web Apps with Flask](./module-18-building-web-apps-with-flask/README.md)
+19. [Building Web Apps with Django](./module-19-building-web-apps-with-django/README.md)
 
 ---
 
@@ -75,3 +79,36 @@ Structured course with **15 modules** (`module-01` … `module-15`). Each topic 
 - [Basic queries with aggregate functions](./module-05-sql/basic-queries-with-aggregate-functions.md)
 - [SQL joins](./module-05-sql/sql-joins.md)
 - [Advanced queries](./module-05-sql/advanced-queries.md)
+
+### Module 16: Pandas and DataFrames
+- [Introduction to NumPy and Arrays](./module-16-pandas-and-dataframes/introduction-to-numpy-and-arrays.md)
+- [NumPy Operations and Math](./module-16-pandas-and-dataframes/numpy-operations-and-math.md)
+- [Introduction to Pandas and DataFrames](./module-16-pandas-and-dataframes/introduction-to-pandas-and-dataframes.md)
+- [Data Selection and Filtering](./module-16-pandas-and-dataframes/data-selection-and-filtering.md)
+- [Data Manipulation and Cleaning](./module-16-pandas-and-dataframes/data-manipulation-and-cleaning.md)
+- [File I/O and Real-World Case Study](./module-16-pandas-and-dataframes/file-io-and-real-world-case-study.md)
+
+### Module 17: Plotly and Matplotlib
+- [Introduction to Matplotlib and Line Charts](./module-17-plotly-and-matplotlib/introduction-to-matplotlib-and-line-charts.md)
+- [Matplotlib Basic Chart Types](./module-17-plotly-and-matplotlib/matplotlib-basic-chart-types.md)
+- [Matplotlib Subplots and Pandas Integration](./module-17-plotly-and-matplotlib/matplotlib-subplots-and-pandas-integration.md)
+- [Introduction to Plotly and Basic Charts](./module-17-plotly-and-matplotlib/introduction-to-plotly-and-basic-charts.md)
+- [Plotly Histograms, Box Plots, and 3D Charts](./module-17-plotly-and-matplotlib/plotly-histograms-boxplots-and-3d-charts.md)
+- [Plotly Graph Objects, Layouts, and Dashboards](./module-17-plotly-and-matplotlib/plotly-graph-objects-layouts-and-dashboards.md)
+
+### Module 18: Building Web Apps with Flask
+- [Introduction to Flask and Setup](./module-18-building-web-apps-with-flask/introduction-to-flask-and-setup.md)
+- [Routing and Request Handling](./module-18-building-web-apps-with-flask/routing-and-request-handling.md)
+- [Rendering Templates and Static Files](./module-18-building-web-apps-with-flask/rendering-templates-and-static-files.md)
+- [Introduction to REST APIs and HTTP Methods](./module-18-building-web-apps-with-flask/introduction-to-rest-apis-and-http-methods.md)
+- [Integrating CSV Data with Pandas and SQLite](./module-18-building-web-apps-with-flask/integrating-csv-data-with-pandas-and-sqlite.md)
+- [Building and Running REST APIs](./module-18-building-web-apps-with-flask/building-and-running-rest-apis.md)
+- [Testing APIs with Postman](./module-18-building-web-apps-with-flask/testing-apis-with-postman.md)
+
+### Module 19: Building Web Apps with Django
+- [Introduction to Django and Setup](./module-19-building-web-apps-with-django/introduction-to-django-and-setup.md)
+- [Designing Views, Routing, and Templates](./module-19-building-web-apps-with-django/designing-views-routing-and-templates.md)
+- [CSV Import and Database CRUD](./module-19-building-web-apps-with-django/csv-import-and-database-crud.md)
+- [Building APIs with DRF and APIView](./module-19-building-web-apps-with-django/building-apis-with-drf-and-apiview.md)
+- [Pagination, Filtering, and Ordering](./module-19-building-web-apps-with-django/pagination-filtering-and-ordering.md)
+- [Displaying Graphs in Templates](./module-19-building-web-apps-with-django/displaying-graphs-in-templates.md)
