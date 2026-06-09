@@ -36,6 +36,8 @@ All modules and chapters live under [`course/`](./course/README.md):
 | 15 | [Image Processing with Python](./course/module-15-image-processing-with-python/README.md) |
 | 16 | [Pandas and DataFrames](./course/module-16-pandas-and-dataframes/README.md) |
 | 17 | [Plotly and Matplotlib](./course/module-17-plotly-and-matplotlib/README.md) |
+| 18 | [Building Web Apps with Flask](./course/module-18-building-web-apps-with-flask/README.md) |
+| 19 | [Building Web Apps with Django](./course/module-19-building-web-apps-with-django/README.md) |
 
 Each module page contains chapter-by-chapter links. You can also start from the full index: [`course/README.md`](./course/README.md).
 
