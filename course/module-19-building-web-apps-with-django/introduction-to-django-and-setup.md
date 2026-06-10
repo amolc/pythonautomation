@@ -51,10 +51,8 @@ To set up Django, first activate your virtual environment, then run the followin
 pip install django
 
 # Create a project folder named 'myproject'
-django-admin startproject myproject
+django-admin startproject myproject .
 
-# Move inside the project folder
-cd myproject
 
 # Create a self-contained app named 'reports'
 python manage.py startapp reports
